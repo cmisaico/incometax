@@ -1,0 +1,27 @@
+type Query {
+    calculateIncomeTax(typeTax:String, salaryAnnualDTO:SalaryAnnualDTO): IncomeTaxDTO}
+
+input SalaryAnnualDTO {
+    januarySalary:Float!,
+    februarySalary:Float!,
+    marchSalary:Float!,
+    aprilSalary:Float!,
+    maySalary:Float!,
+    juneSalary:Float!,
+    julySalary:Float!,
+    augustSalary:Float!,
+    septemberSalary:Float!,
+    octoberSalary:Float!,
+    novemberSalary:Float!,
+    decemberSalary:Float!
+}
+
+type IncomeTaxDTO {
+    firstDiscount: Float!
+    secondDiscount: Float
+    thirdDiscount: Float
+    fourthDiscount: Float
+    fifthDiscount: Float
+    typeTax: String!
+    amount: Float!
+}
