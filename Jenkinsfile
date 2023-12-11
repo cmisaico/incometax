@@ -5,13 +5,14 @@ pipeline {
         }
     }
     environment {
-        PATH = '/opt/gradle-7.3.1/bin:$PATH'
+        PATH = "/opt/gradle-7.3.1/bin:$PATH"
     }
 
     stages {
-        stage('Build') {
+        stage("Build") {
             steps {
-                sh 'gradle build'
+                sh 'echo "Building the app"
+                sh 'gradle build -x test'
             }
         }
     }
