@@ -5,7 +5,7 @@ pipeline {
         }
     }
     environment {
-        PATH = "/opt/gradle-7.3.1/bin:$PATH"
+        PATH = "/opt/gradle-8.0/bin:$PATH"
     }
 
     stages {
