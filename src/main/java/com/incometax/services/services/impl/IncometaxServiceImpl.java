@@ -43,16 +43,16 @@ public class IncometaxServiceImpl implements IncometaxService {
             discountSecondSection = (discountUITs - (5 * IncometaxUtil.UIT)) * IncometaxUtil.SECOND_SECTION_DISCOUNT;
         } else if(discountUITs <= IncometaxUtil.UIT * 35 && discountUITs > 20 * IncometaxUtil.UIT) {
             discountFirstSection = (5 * IncometaxUtil.UIT) * IncometaxUtil.FIRST_SECTION_DISCOUNT;
-            discountThirdSection = (15 * IncometaxUtil.UIT) * IncometaxUtil.SECOND_SECTION_DISCOUNT;
+            discountSecondSection = (15 * IncometaxUtil.UIT) * IncometaxUtil.SECOND_SECTION_DISCOUNT;
             discountThirdSection = (discountUITs - (20 * IncometaxUtil.UIT)) * IncometaxUtil.THIRD_SECTION_DISCOUNT;
         } else if(discountUITs <= IncometaxUtil.UIT * 45 && discountUITs > 35 * IncometaxUtil.UIT) {
             discountFirstSection = (5 * IncometaxUtil.UIT) * IncometaxUtil.FIRST_SECTION_DISCOUNT;
-            discountThirdSection = (15 * IncometaxUtil.UIT) * IncometaxUtil.SECOND_SECTION_DISCOUNT;
+            discountSecondSection = (15 * IncometaxUtil.UIT) * IncometaxUtil.SECOND_SECTION_DISCOUNT;
             discountThirdSection = (15 * IncometaxUtil.UIT) * IncometaxUtil.THIRD_SECTION_DISCOUNT;
             discountFourthSection = (discountUITs - (35 * IncometaxUtil.UIT)) * IncometaxUtil.FOURTH_SECTION_DISCOUNT;
         } else if(discountUITs > 45 * IncometaxUtil.UIT) {
             discountFirstSection = (5 * IncometaxUtil.UIT) * IncometaxUtil.FIRST_SECTION_DISCOUNT;
-            discountThirdSection = (15 * IncometaxUtil.UIT) * IncometaxUtil.SECOND_SECTION_DISCOUNT;
+            discountSecondSection = (15 * IncometaxUtil.UIT) * IncometaxUtil.SECOND_SECTION_DISCOUNT;
             discountThirdSection = (15 * IncometaxUtil.UIT) * IncometaxUtil.THIRD_SECTION_DISCOUNT;
             discountFourthSection = (10 * IncometaxUtil.UIT) * IncometaxUtil.FOURTH_SECTION_DISCOUNT;
             discountFifthSection = (discountUITs - (45 * IncometaxUtil.UIT)) * IncometaxUtil.FIFTH_SECTION_DISCOUNT;

@@ -3,7 +3,7 @@ package com.incometax.utils;
 public class IncometaxUtil {
 
     public static final float DISCOUNT_INITIAL = 0.2f;
-    public static final float UIT = 4600f;
+    public static final float UIT = 4950f;
     public static final int DISCOUNT_UIT = 7;
     public static final float FIRST_SECTION_DISCOUNT = 0.08f;
     public static final float SECOND_SECTION_DISCOUNT = 0.14f;

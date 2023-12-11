@@ -4,10 +4,14 @@ pipeline {
             label 'gradle'
         }
     }
+    environment {
+        PATH = '/opt/gradle-7.3.1/bin:$PATH'
+    }
+
     stages {
-        stage('Clone-code'){
+        stage('Build') {
             steps {
-                git branch: 'main', url: 'https://github.com/cmisaico/incometax-service.git'
+                sh 'gradle build'
             }
         }
     }
