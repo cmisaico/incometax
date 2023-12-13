@@ -16,7 +16,7 @@ pipeline {
                 sh 'gradle build -x test'
             }
         }
-        stage("SonarQube analysis") {
+        stage("SonarQube analysis v1") {
             environment {
                 scannerHome = tool 'cmisacio-sonar-scanner'
             }
