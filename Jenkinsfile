@@ -12,8 +12,6 @@ pipeline {
         stage("Build") {
             steps {
                 sh 'echo "------------------- Building the app -------------------"'
-                sh 'gradle clean'
-                sh 'gradle --refresh-dependencies'
                 sh 'gradle build -x test'
                 sh 'echo "------------------- Building complete the app -------------------"'
             }
