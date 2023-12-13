@@ -12,16 +12,16 @@ pipeline {
         stage("Build") {
             steps {
                 sh 'echo "------------------- Building the app -------------------"'
-                sh 'gradlew clean'
-                sh 'gradlew --refresh-dependencies'
-                sh 'gradlew build -x test'
+                sh 'gradle clean'
+                sh 'gradle --refresh-dependencies'
+                sh 'gradle build -x test'
                 sh 'echo "------------------- Building complete the app -------------------"'
             }
         }
         stage("Test") {
             steps {
                 sh 'echo "------------------- Testing started the app -------------------"'
-                sh 'gradlew allureReport'
+                sh 'gradle allureReport'
                 sh 'echo "------------------- Testing ended the app -------------------"'
             }
         }
