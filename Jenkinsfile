@@ -18,7 +18,7 @@ pipeline {
         }
         stage("SonarQube analysis v1") {
             environment {
-                scannerHome = tool 'cmisacio-sonar-scanner'
+                scannerHome = tool 'cmisaico-sonar-scanner'
             }
             steps{
                 withSonarQubeEnv('cmisaico-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
