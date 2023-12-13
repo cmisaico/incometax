@@ -21,7 +21,7 @@ pipeline {
         stage("Test") {
             steps {
                 sh 'echo "------------------- Testing started the app -------------------"'
-                sh 'gradle test jacocoTestReport'
+                sh 'gradle test'
                 sh 'echo "------------------- Testing ended the app -------------------"'
             }
         }
