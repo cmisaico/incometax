@@ -16,5 +16,15 @@ pipeline {
                 sh 'gradle build -x test'
             }
         }
+        stage("SonarQube analysis") {
+            environment {
+                scannerHome = tool 'cmisacio-sonar-scanner'
+            }
+            step{
+                withSonarQubeEnv('cmisaico-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
+                sh "${scannerHome}/bin/sonar-scanner"
+            }
+            }
+        }
     }
 }
