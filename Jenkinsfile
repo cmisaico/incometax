@@ -12,6 +12,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh 'echo "Building the app"'
+                sh 'gradle clean'
                 sh 'gradle build -x test'
             }
         }
