@@ -21,7 +21,7 @@ pipeline {
         stage("Test") {
             steps {
                 sh 'echo "------------------- Testing started the app -------------------"'
-                sh 'gradlew allureReport'
+                sh 'gradle allureReport'
                 sh 'echo "------------------- Testing ended the app -------------------"'
             }
         }
