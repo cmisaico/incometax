@@ -20,7 +20,7 @@ pipeline {
             environment {
                 scannerHome = tool 'cmisacio-sonar-scanner'
             }
-            step{
+            steps{
                 withSonarQubeEnv('cmisaico-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
                 sh "${scannerHome}/bin/sonar-scanner"
             }
