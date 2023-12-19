@@ -23,7 +23,8 @@ pipeline {
                     script {
                         sh 'echo "------------------- Publishing the app -------------------"'
                         def server = Artifactory.newServer url:registry + "/artifactory", credentialsId: 'artifact-cred'
-                        def properties = """{
+                        def properties = "build.id=${env.BUILD_ID},commitId=${env.GIT_COMMIT}";
+                        def uploadSpec = """{
                            "files": [
                            {
                                "pattern": "build/libs/*.jar",
