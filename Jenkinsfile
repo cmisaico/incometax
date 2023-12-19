@@ -20,6 +20,7 @@ pipeline {
         }
         stage("Jar publish") {
                     steps {
+                    script {
                         sh 'echo "------------------- Publishing the app -------------------"'
                         def server = Artifactory.newServer url:registry + "/artifactory", credentialsId: 'artifact-cred'
                         def properties = """{
@@ -36,6 +37,7 @@ pipeline {
                     buildInfo.env.collect()
                     server.publishBuildInfo(buildInfo)
                     echo '< ---------- Jar publish End ---------- >'
+                    }
                     }
                 }
 
