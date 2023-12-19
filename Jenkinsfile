@@ -1,3 +1,5 @@
+def registry = 'https://demoudemy01.jfrog.io/'
+
 pipeline {
     agent {
         node {
@@ -26,5 +28,6 @@ pipeline {
             }
             }
         }
+
     }
 }
