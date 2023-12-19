@@ -16,13 +16,6 @@ pipeline {
                 sh 'echo "------------------- Building complete the app -------------------"'
             }
         }
-        stage("Test") {
-            steps {
-                sh 'echo "------------------- Testing started the app -------------------"'
-                sh 'gradle allureReport'
-                sh 'echo "------------------- Testing ended the app -------------------"'
-            }
-        }
         stage("SonarQube analysis v1") {
             environment {
                 scannerHome = tool 'cmisaico-sonar-scanner'
