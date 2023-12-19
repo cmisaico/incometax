@@ -1,4 +1,6 @@
 def registry = 'https://demoudemy01.jfrog.io/'
+def imageName = 'demoudemy01.jfrog.io/misaico-docker-docker-local/incommex-docker'
+        def version = '1.0.0'
 
 pipeline {
     agent {
@@ -48,6 +50,28 @@ pipeline {
                     }
                     }
                 }
+
+
+        stage("Docker build") {
+            steps {
+                script {
+                echo "------------------- Building the docker image -------------------"
+                app = docker.build(imageName + ":" + version)
+                echo "------------------- Building complete the docker image -------------------"
+                }
+            }
+        }
+        stage("Docker publish") {
+            steps {
+                script {
+                    echo "------------------- Publishing the docker image -------------------"
+                    docker.withRegistry(registry, 'artifact-cred') {
+                        app.push()
+                    }
+                    echo "------------------- Publishing complete the docker image -------------------"
+                }
+            }
+        }
 
     }
 }
