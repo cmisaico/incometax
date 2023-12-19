@@ -30,7 +30,7 @@ pipeline {
                            "files": [
                            {
                                "pattern": "build/libs/(*)",
-                               "target": "libs-release-local/{1}",
+                               "target": "demoudemy-gradle-release-local/{1}",
                                "flat": "false",
                                "props": "${properties}",
                                "exclusions": ["*.sha1", "*.md5"]
