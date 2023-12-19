@@ -23,7 +23,9 @@ pipeline {
                     script {
                         sh 'echo "------------------- Publishing the app -------------------"'
                         def server = Artifactory.newServer url:registry + "/artifactory", credentialsId: 'artifact-cred'
-                        def properties = "build.id=${env.BUILD_ID},commitId=${env.GIT_COMMIT}";
+                        sh 'echo "------------------- 1 -------------------"'
+                        def properties = "buildid=${env.BUILD_ID},commitId=${env.GIT_COMMIT}";
+                        sh 'echo "------------------- 2 -------------------"'
                         def uploadSpec = """{
                            "files": [
                            {
@@ -34,9 +36,13 @@ pipeline {
                         }
                         ]
                     }"""
+                    sh 'echo "-------------------3 -------------------"'
                     def buildInfo = server.upload(uploadSpec)
+                    sh 'echo "-------------------4 -------------------"'
                     buildInfo.env.collect()
+                    sh 'echo "-------------------5 -------------------"'
                     server.publishBuildInfo(buildInfo)
+                    sh 'echo "------------------- 6 -------------------"'
                     echo '< ---------- Jar publish End ---------- >'
                     }
                     }
