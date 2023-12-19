@@ -22,15 +22,16 @@ pipeline {
                     steps {
                     script {
                         sh 'echo "------------------- Publishing the app -------------------"'
-                        def server = Artifactory.newServer url:registry + "/artifactory", credentialsId: 'artifact-cred'
+                        def server = Artifactory.newServer url:registry + "/artifactory", credentialsId: "artifact-cred"
                         sh 'echo "------------------- 1 -------------------"'
-                        def properties = "buildid=${env.BUILD_ID},commitId=${env.GIT_COMMIT}";
+                        def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                         sh 'echo "------------------- 2 -------------------"'
                         def uploadSpec = """{
                            "files": [
                            {
                                "pattern": "build/libs/*.jar",
-                               "target": "libs-release-local/",
+                               "target": "libs-release-local/{1}",
+                               "flat": "false",
                                "props": "${properties}",
                                "exclusions": ["*.sha1", "*.md5"]
                         }
