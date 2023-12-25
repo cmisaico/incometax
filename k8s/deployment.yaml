@@ -17,7 +17,7 @@ spec:
         - name: jfrogcred
       containers:
         - name:
-          image: #docker.io/rajeshkp/incometax-rtp:latest
+          image: demoudemy01.jfrog.io/misaico-docker-docker-local/incommex-docker:1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
