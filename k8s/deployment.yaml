@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: incometax-deployment
+  namespace: incometax
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: incometax-rtp
+  template:
+    metadata:
+      labels:
+        app: incometax-rtp
+    spec:
+      imagePullSecrets:
+        - name: jfrogcred
+      containers:
+        - name:
+          image: #docker.io/rajeshkp/incometax-rtp:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: CONSUMER_KEY
+              value: incometax-db
+            - name: CONSUMER_SECRET
+              value: incometax-db
+            - name: ACCESS_TOKEN
+              value: incometax-db
+            - name: ACCESS_TOKEN_SECRET
+              value: incometax-db
