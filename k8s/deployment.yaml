@@ -16,8 +16,8 @@ spec:
       imagePullSecrets:
         - name: jfrogcred
       containers:
-        - name:
-          image: demoudemy01.jfrog.io/misaico-docker-docker-local/incommex-docker:1.0.0
+        - name: incometax-rtp
+          image: demoudemy01.jfrog.io/misaico-docker-docker/incommex-docker:1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8000

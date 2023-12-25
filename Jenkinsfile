@@ -66,6 +66,24 @@ pipeline {
                 }
             }
         }
+        stage ("Package helm"){
+            steps {
+                script {
+                    echo "------------------- Packaging the helm chart -------------------"
+                    sh 'helm package k8s/incometax'
+                    echo "------------------- Removing templates -------------------"
+                    sh 'rm -rf k8s/incometax/templates/*'
+                    echo "------------------- Copy templates -------------------"
+                    sh 'cp k8s/*.yaml k8s/incometax/templates/'
+                    echo "------------------- Helm chart package complete -------------------"
+                    sh 'helm package k8s/incometax'
+                    echo "------------------- Installing the helm chart -------------------"
+                    sh 'helm install incometax incometax-0.1.0.tgz'
+                }
+            }
+        }
+
+
 
     }
 }
