@@ -69,8 +69,6 @@ pipeline {
         stage ("Package helm"){
             steps {
                 script {
-                    echo "------------------- Packaging the helm chart -------------------"
-                    sh 'helm package k8s/incometax'
                     echo "------------------- Removing templates -------------------"
                     sh 'rm -rf k8s/incometax/templates/*'
                     echo "------------------- Copy templates -------------------"
